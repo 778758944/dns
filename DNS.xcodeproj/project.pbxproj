@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F15483D21AFB67A007651FF /* DnsSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F15483B21AFB67A007651FF /* DnsSearch.cpp */; };
+		7F36C44C21AFC0A000F0325C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44B21AFC0A000F0325C /* CFNetwork.framework */; };
+		7F36C44E21AFC0B400F0325C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */; };
 		7F56E39221AFAA860025306F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E39121AFAA860025306F /* AppDelegate.m */; };
 		7F56E39521AFAA860025306F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E39421AFAA860025306F /* ViewController.m */; };
 		7F56E39821AFAA860025306F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F56E39621AFAA860025306F /* Main.storyboard */; };
@@ -15,6 +18,10 @@
 		7F56E3A021AFAA870025306F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E39F21AFAA870025306F /* main.m */; };
 		7F56E3AA21AFAA870025306F /* DNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3A921AFAA870025306F /* DNSTests.m */; };
 		7F56E3B521AFAA870025306F /* DNSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3B421AFAA870025306F /* DNSUITests.m */; };
+		7F56E3C421AFABEB0025306F /* DnsCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3C321AFABEB0025306F /* DnsCtrl.m */; };
+		7F6F5A4521B9603A00D87C67 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F6F5A4421B9603A00D87C67 /* girl.jpg */; };
+		7FD2BDE721BA35F100DA1304 /* ColorQuantizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */; };
+		7FFA873521B9690200C7CF27 /* girl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA873421B9690200C7CF27 /* girl2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F15483B21AFB67A007651FF /* DnsSearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DnsSearch.cpp; sourceTree = "<group>"; };
+		7F15483C21AFB67A007651FF /* DnsSearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DnsSearch.hpp; sourceTree = "<group>"; };
+		7F36C44B21AFC0A000F0325C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F56E38D21AFAA860025306F /* DNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F56E39021AFAA860025306F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7F56E39121AFAA860025306F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +62,12 @@
 		7F56E3B021AFAA870025306F /* DNSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DNSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F56E3B421AFAA870025306F /* DNSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DNSUITests.m; sourceTree = "<group>"; };
 		7F56E3B621AFAA870025306F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F56E3C221AFABEB0025306F /* DnsCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DnsCtrl.h; sourceTree = "<group>"; };
+		7F56E3C321AFABEB0025306F /* DnsCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DnsCtrl.m; sourceTree = "<group>"; };
+		7F6F5A4421B9603A00D87C67 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl.jpg; path = ../../../Desktop/girl.jpg; sourceTree = "<group>"; };
+		7FD2BDE521BA35F100DA1304 /* ColorQuantizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorQuantizer.h; sourceTree = "<group>"; };
+		7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ColorQuantizer.c; sourceTree = "<group>"; };
+		7FFA873421B9690200C7CF27 /* girl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl2.jpg; path = ../../../Desktop/girl2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F36C44E21AFC0B400F0325C /* SystemConfiguration.framework in Frameworks */,
+				7F36C44C21AFC0A000F0325C /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F36C44A21AFC09F00F0325C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */,
+				7F36C44B21AFC0A000F0325C /* CFNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F56E38421AFAA860025306F = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +113,7 @@
 				7F56E3A821AFAA870025306F /* DNSTests */,
 				7F56E3B321AFAA870025306F /* DNSUITests */,
 				7F56E38E21AFAA860025306F /* Products */,
+				7F36C44A21AFC09F00F0325C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,12 +133,20 @@
 				7F56E39021AFAA860025306F /* AppDelegate.h */,
 				7F56E39121AFAA860025306F /* AppDelegate.m */,
 				7F56E39321AFAA860025306F /* ViewController.h */,
+				7F56E3C221AFABEB0025306F /* DnsCtrl.h */,
+				7F56E3C321AFABEB0025306F /* DnsCtrl.m */,
+				7F15483B21AFB67A007651FF /* DnsSearch.cpp */,
+				7F15483C21AFB67A007651FF /* DnsSearch.hpp */,
 				7F56E39421AFAA860025306F /* ViewController.m */,
 				7F56E39621AFAA860025306F /* Main.storyboard */,
 				7F56E39921AFAA870025306F /* Assets.xcassets */,
 				7F56E39B21AFAA870025306F /* LaunchScreen.storyboard */,
 				7F56E39E21AFAA870025306F /* Info.plist */,
 				7F56E39F21AFAA870025306F /* main.m */,
+				7FD2BDE521BA35F100DA1304 /* ColorQuantizer.h */,
+				7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */,
+				7F6F5A4421B9603A00D87C67 /* girl.jpg */,
+				7FFA873421B9690200C7CF27 /* girl2.jpg */,
 			);
 			path = DNS;
 			sourceTree = "<group>";
@@ -236,7 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F56E39D21AFAA870025306F /* LaunchScreen.storyboard in Resources */,
+				7F6F5A4521B9603A00D87C67 /* girl.jpg in Resources */,
 				7F56E39A21AFAA870025306F /* Assets.xcassets in Resources */,
+				7FFA873521B9690200C7CF27 /* girl2.jpg in Resources */,
 				7F56E39821AFAA860025306F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,7 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F56E39521AFAA860025306F /* ViewController.m in Sources */,
+				7FD2BDE721BA35F100DA1304 /* ColorQuantizer.c in Sources */,
+				7F15483D21AFB67A007651FF /* DnsSearch.cpp in Sources */,
 				7F56E3A021AFAA870025306F /* main.m in Sources */,
+				7F56E3C421AFABEB0025306F /* DnsCtrl.m in Sources */,
 				7F56E39221AFAA860025306F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
