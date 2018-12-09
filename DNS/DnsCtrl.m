@@ -16,6 +16,7 @@
 @property(nonatomic, strong) UILabel * recvText;
 @property(nonatomic, strong) UIButton * imageBtn;
 @property(nonatomic, strong) UIImageView * imageView;
+@property(nonatomic) unsigned char * rawData;
 @end
 
 @implementation DnsCtrl
@@ -29,7 +30,7 @@
     self.imageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
     
-    UIImage * girl = [UIImage imageNamed: @"girl.jpg"];
+    UIImage * girl = [UIImage imageNamed: @"girl2.jpg"];
     self.imageView.image = girl;
     
     self.recvText.font = [UIFont systemFontOfSize:20];
@@ -48,7 +49,7 @@
     
     [self.imageBtn setTitle:@"Choose" forState:(UIControlStateNormal)];
     [self.imageBtn setBackgroundColor:[UIColor redColor]];
-    [self.imageBtn addTarget:self action:@selector(getImageData) forControlEvents:(UIControlEventTouchDown)];
+    [self.imageBtn addTarget:self action:@selector(getThemeColor) forControlEvents:(UIControlEventTouchDown)];
     
     [self.view addSubview: self.domainInput];
     [self.view addSubview: self.searchBtn];
@@ -87,6 +88,8 @@
     [self.domainInput.heightAnchor constraintEqualToConstant:44].active = YES;
     
     [self.domainInput.centerXAnchor constraintEqualToAnchor:self.searchBtn.centerXAnchor].active = YES;
+    
+    [self getImageData];
     
     
     
@@ -135,31 +138,24 @@
     
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     
-    unsigned char * rawData = (unsigned char *) calloc(width * height * 4, sizeof(unsigned char));
+    self.rawData = (unsigned char *) calloc(width * height * 4, sizeof(unsigned char));
     
     NSUInteger bytesPerPixel = 4;
     NSUInteger bytesPerRow = bytesPerPixel * width;
     NSUInteger bitsPerComponent = 8;
     
-    CGContextRef context = CGBitmapContextCreate(rawData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    CGContextRef context = CGBitmapContextCreate(self.rawData, width, height, bitsPerComponent, bytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
     
     CGContextRelease(context);
 //    CGColorSpaceRelease(colorSpace);
 //    self.imageView.image = [UIImage imageNamed: @"girl2.jpg"];
-    ColorNode * root = createColorNode(0);
-    for (int i = 0; i < width * height * 4; i += 4) {
-        addColorNode(rawData[i], rawData[i + 1], rawData[i + 2], root, 0);
-    }
     
 //    ColorNode * node = getColor(root);
     /*
     NSLog(@"r = %d, g = %d, b = %d, pixelCount = %llu", node->r, node->g, node->b, node->pixelCount);
      */
     self.view.backgroundColor = [UIColor greenColor];
-    reducerTree(root, 1);
-    
-    NSLog(@"r = %d, g = %d, b = %d, pixelCount = %llu", root->r, root->g, root->b, root->pixelCount);
     
     
 //    self.imageView.image = [UIImage imageNamed: @"girl2.jpg"];
@@ -173,10 +169,39 @@
     
     self.imageView.image = [UIImage imageWithCGImage: iref];
     */
+    /*
+    uint8_t * theme = getImageThemeColor(self.rawData, width * height * 4, 8);
     
-//    ColorNode * root = createColorNode();
+    NSLog(@"r = %d, g = %d, b = %d", theme[0], theme[1], theme[2]);
+    
+    
+    self.view.backgroundColor = [UIColor colorWithRed:theme[0]/255.0 green:theme[1]/255.0 blue:theme[2]/255.0 alpha:1];
+     */
+    
+    
+    
     
 }
+
+-(void) getThemeColor
+{
+//    test();
+    /*
+    uint8_t * theme = getImageThemeColor(self.rawData, 100 * 100 * 4, 8);
+    NSLog(@"r = %d, g = %d, b = %d", theme[0], theme[1], theme[2]);
+    self.view.backgroundColor = [UIColor colorWithRed:theme[0]/255.0 green:theme[1]/255.0 blue:theme[2]/255.0 alpha:1];
+    free(theme);
+     */
+    
+    QuantizedColor * p = getQuantizedColor(self.rawData, 100 * 100 * 4, 8);
+    NSLog(@"count: %d", p->count);
+    for (int i = 0; i < p->count; i++) {
+        ColorRGB * c = p->colors[i];
+        NSLog(@"r=%d, g=%d, b=%d, count=%llu", c->r, c->g, c->b, c->pixelCount);
+    }
+    freeQuantizedColor(p);
+}
+
 
 
 

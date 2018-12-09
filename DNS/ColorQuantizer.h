@@ -11,28 +11,22 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#define MAX_LENGTH 7
 
-
-typedef struct ColorItem {
+typedef struct color {
     uint8_t r;
     uint8_t g;
     uint8_t b;
-    bool isLeaf;
-    struct ColorItem ** children;
     uint64_t pixelCount;
-    struct ColorItem * next;
-} ColorNode;
+} ColorRGB;
 
-ColorNode * createColorNode(uint32_t level);
+typedef struct quantizedcolor {
+    int count;
+    struct color ** colors;
+} QuantizedColor;
 
-void addColorNode(uint8_t r, uint8_t g, uint8_t b, ColorNode * node, uint32_t level);
 
-uint8_t getColorIndex(uint8_t r, uint8_t g, uint8_t b, uint32_t level);
-
-ColorNode * getColor(ColorNode * root);
-
-void reducerTree(ColorNode * root, uint32_t count);
-void releaseNode(ColorNode * root);
+uint8_t * getImageThemeColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf);
+QuantizedColor * getQuantizedColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf);
+void freeQuantizedColor(QuantizedColor * p);
 
 #endif /* ColorQuantizer_h */

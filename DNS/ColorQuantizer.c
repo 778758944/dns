@@ -10,15 +10,39 @@
 #include <stdlib.h>
 #include <errno.h>
 #define oops(m) {perror(m); exit(1);}
+#define MAX_LENGTH 8
+
+typedef struct ColorItem {
+    uint64_t r;
+    uint64_t g;
+    uint64_t b;
+    bool isLeaf;
+    struct ColorItem ** children;
+    uint64_t pixelCount;
+    struct ColorItem * next;
+} ColorNode;
+
+
 static int leafNum = 0;
-ColorNode * reducerArr[MAX_LENGTH];
+static ColorNode * reducerArr[MAX_LENGTH];
+static uint64_t R = 0, G = 0, B = 0;
+
+void releaseNode(ColorNode * node) {
+    ColorNode ** children = node->children;
+    if (children != NULL) {
+        for (int i = 0; i < 8; i++) {
+            if (children[i] != NULL) releaseNode(children[i]);
+        }
+        free(children);
+    }
+    free(node);
+}
 
 ColorNode * createColorNode(uint32_t level) {
     ColorNode * node = (ColorNode *) malloc(sizeof(ColorNode));
     if (node == NULL) {
         oops("malloc: ");
     }
-    
     node -> r = 0;
     node -> g = 0;
     node -> b = 0;
@@ -29,13 +53,14 @@ ColorNode * createColorNode(uint32_t level) {
         leafNum++;
     } else {
         node->isLeaf = false;
-        node->children = (ColorNode **) calloc(8, 8 * sizeof(ColorNode *));
+        node->children = (ColorNode **) calloc(MAX_LENGTH, sizeof(ColorNode *));
+        node->next = reducerArr[level];
+        reducerArr[level] = node;
     }
     return node;
 }
 
 uint8_t getColorIndex(uint8_t r, uint8_t g, uint8_t b, uint32_t level) {
-//    printf("level: %d\n", level);
     uint8_t index = 0;
     uint8_t mask = 0x80 >> level;
     if (r & mask) index |= 0x04;
@@ -55,51 +80,91 @@ void addColorNode(uint8_t r, uint8_t g, uint8_t b, ColorNode * node, uint32_t le
         ColorNode * nextNode;
         if (node->children[index] == NULL) {
             node->children[index] = createColorNode(level + 1);
-            if (reducerArr[level]) {
-                node->children[index]->next = reducerArr[level];
-            }
-            reducerArr[level] = node->children[index];
-
         }
         nextNode = node->children[index];
         addColorNode(r, g, b, nextNode, level + 1);
     }
 }
 
-ColorNode * getColor(ColorNode * root) {
-    printf("leafNum = %d\n", leafNum);
-    if (root->children && root->children[7]) {
-        return getColor(root->children[7]);
+void reducerTree() {
+    uint32_t start = MAX_LENGTH - 1;
+    ColorNode * reduceNode;
+    while ((reduceNode = reducerArr[start]) == NULL) {
+        start--;
     }
     
+    reducerArr[start] = reduceNode->next;
+    
+    for (int i = 0; i < MAX_LENGTH; i++) {
+        ColorNode * child = reduceNode->children[i];
+        if (child != NULL) {
+            reduceNode->r += child->r;
+            reduceNode->g += child->g;
+            reduceNode->b += child->b;
+            reduceNode->pixelCount += child->pixelCount;
+            reduceNode->isLeaf = true;
+            leafNum--;
+            free(child);
+        }
+    }
+    
+    free(reduceNode->children);
+    leafNum++;
+}
+
+
+ColorNode * buildOctree(uint8_t * pixels, uint64_t len, uint32_t maxLeaf) {
+    ColorNode * root = createColorNode(0);
+    leafNum = 0;
+    R = G = B = 0;
+    for (int i = 0; i < len; i += 4) {
+        addColorNode(pixels[i], pixels[i + 1], pixels[i + 2], root, 0);
+        while(leafNum > maxLeaf) reducerTree();
+    }
     return root;
 }
 
-void reducerTree(ColorNode * root, uint32_t count) {
-    if (count > leafNum) return;
-    for (int i = MAX_LENGTH - 2; i >= 0; i--) {
-        ColorNode * node = reducerArr[i];
-        while(node) {
-            ColorNode ** children = node->children;
-            for (int i = 0; i < 8; i++) {
-                ColorNode * child = children[i];
-                if (child) {
-                    node->r += child->r;
-                    node->g += child->g;
-                    node->b += child->b;
-                    node->pixelCount += child->pixelCount;
-                    leafNum--;
-                }
+void getLeafColor(ColorNode * node, QuantizedColor * rp) {
+    if (node->isLeaf) {
+        uint64_t pixelCount = node->pixelCount;
+        ColorRGB * c = (ColorRGB *) calloc(1, sizeof(ColorRGB));
+        c->r = node->r/pixelCount;
+        c->g = node->g/pixelCount;
+        c->b = node->b/pixelCount;
+        c->pixelCount = pixelCount;
+        rp->colors[rp->count] = c;
+        rp->count++;
+    } else {
+        ColorNode ** children = node->children;
+        if (children != NULL) {
+            for (int i = 0; i < MAX_LENGTH; i++) {
+                if (children[i] != NULL) getLeafColor(children[i], rp);
             }
-            node->children = NULL;
-            if (leafNum <= count) break;
-            node = node->next;
+            free(children);
         }
-        
-        if (leafNum <= count) break;
     }
+    free(node);
 }
 
-void releaseNode(ColorNode * root) {
-    free(root);
+QuantizedColor * getQuantizedColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf) {
+    QuantizedColor * rp = (QuantizedColor *) calloc(1, sizeof(QuantizedColor));
+    rp->count = 0;
+    rp->colors = (ColorRGB **) calloc(maxLeaf, sizeof(ColorRGB *));
+    ColorNode * root = buildOctree(pixel, len, maxLeaf);
+    getLeafColor(root, rp);
+    return rp;
 }
+
+void freeQuantizedColor(QuantizedColor * p) {
+    int count = p -> count;
+    for (int i = 0; i < count; i++) {
+        ColorRGB * c = p->colors[i];
+        if (c != NULL) free(c);
+    }
+    
+    free(p->colors);
+    free(p);
+}
+
+
+

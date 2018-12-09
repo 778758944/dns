@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72D1620D21BAB85D00353AF7 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1620C21BAB85D00353AF7 /* girl.jpg */; };
+		72D1620F21BAB86900353AF7 /* girl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1620E21BAB86900353AF7 /* girl2.jpg */; };
+		72D1621121BAC68C00353AF7 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621021BAC68C00353AF7 /* test.jpg */; };
+		72D1621321BAC84200353AF7 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621221BAC84200353AF7 /* red.jpg */; };
+		72D1621521BAC88300353AF7 /* green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621421BAC88300353AF7 /* green.jpg */; };
+		72D1621721BAC8CC00353AF7 /* blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621621BAC8CC00353AF7 /* blue.jpg */; };
+		72D1621921BACAA800353AF7 /* girl3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621821BACAA800353AF7 /* girl3.jpg */; };
+		72D1621B21BACB7E00353AF7 /* naruto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621A21BACB7E00353AF7 /* naruto.jpg */; };
+		72D1621D21BACD9F00353AF7 /* naruto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621C21BACD9F00353AF7 /* naruto2.jpg */; };
 		7F15483D21AFB67A007651FF /* DnsSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F15483B21AFB67A007651FF /* DnsSearch.cpp */; };
 		7F36C44C21AFC0A000F0325C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44B21AFC0A000F0325C /* CFNetwork.framework */; };
 		7F36C44E21AFC0B400F0325C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */; };
@@ -19,9 +28,7 @@
 		7F56E3AA21AFAA870025306F /* DNSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3A921AFAA870025306F /* DNSTests.m */; };
 		7F56E3B521AFAA870025306F /* DNSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3B421AFAA870025306F /* DNSUITests.m */; };
 		7F56E3C421AFABEB0025306F /* DnsCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E3C321AFABEB0025306F /* DnsCtrl.m */; };
-		7F6F5A4521B9603A00D87C67 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F6F5A4421B9603A00D87C67 /* girl.jpg */; };
 		7FD2BDE721BA35F100DA1304 /* ColorQuantizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */; };
-		7FFA873521B9690200C7CF27 /* girl2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7FFA873421B9690200C7CF27 /* girl2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +49,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72D1620C21BAB85D00353AF7 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
+		72D1620E21BAB86900353AF7 /* girl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl2.jpg; sourceTree = "<group>"; };
+		72D1621021BAC68C00353AF7 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		72D1621221BAC84200353AF7 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red.jpg; sourceTree = "<group>"; };
+		72D1621421BAC88300353AF7 /* green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green.jpg; sourceTree = "<group>"; };
+		72D1621621BAC8CC00353AF7 /* blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue.jpg; sourceTree = "<group>"; };
+		72D1621821BACAA800353AF7 /* girl3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl3.jpg; sourceTree = "<group>"; };
+		72D1621A21BACB7E00353AF7 /* naruto.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naruto.jpg; sourceTree = "<group>"; };
+		72D1621C21BACD9F00353AF7 /* naruto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naruto2.jpg; sourceTree = "<group>"; };
 		7F15483B21AFB67A007651FF /* DnsSearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DnsSearch.cpp; sourceTree = "<group>"; };
 		7F15483C21AFB67A007651FF /* DnsSearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DnsSearch.hpp; sourceTree = "<group>"; };
 		7F36C44B21AFC0A000F0325C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -64,10 +80,8 @@
 		7F56E3B621AFAA870025306F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F56E3C221AFABEB0025306F /* DnsCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DnsCtrl.h; sourceTree = "<group>"; };
 		7F56E3C321AFABEB0025306F /* DnsCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DnsCtrl.m; sourceTree = "<group>"; };
-		7F6F5A4421B9603A00D87C67 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl.jpg; path = ../../../Desktop/girl.jpg; sourceTree = "<group>"; };
 		7FD2BDE521BA35F100DA1304 /* ColorQuantizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorQuantizer.h; sourceTree = "<group>"; };
 		7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ColorQuantizer.c; sourceTree = "<group>"; };
-		7FFA873421B9690200C7CF27 /* girl2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl2.jpg; path = ../../../Desktop/girl2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +159,15 @@
 				7F56E39F21AFAA870025306F /* main.m */,
 				7FD2BDE521BA35F100DA1304 /* ColorQuantizer.h */,
 				7FD2BDE621BA35F100DA1304 /* ColorQuantizer.c */,
-				7F6F5A4421B9603A00D87C67 /* girl.jpg */,
-				7FFA873421B9690200C7CF27 /* girl2.jpg */,
+				72D1620C21BAB85D00353AF7 /* girl.jpg */,
+				72D1620E21BAB86900353AF7 /* girl2.jpg */,
+				72D1621021BAC68C00353AF7 /* test.jpg */,
+				72D1621221BAC84200353AF7 /* red.jpg */,
+				72D1621421BAC88300353AF7 /* green.jpg */,
+				72D1621621BAC8CC00353AF7 /* blue.jpg */,
+				72D1621821BACAA800353AF7 /* girl3.jpg */,
+				72D1621A21BACB7E00353AF7 /* naruto.jpg */,
+				72D1621C21BACD9F00353AF7 /* naruto2.jpg */,
 			);
 			path = DNS;
 			sourceTree = "<group>";
@@ -272,10 +293,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D1620D21BAB85D00353AF7 /* girl.jpg in Resources */,
+				72D1621921BACAA800353AF7 /* girl3.jpg in Resources */,
+				72D1621521BAC88300353AF7 /* green.jpg in Resources */,
+				72D1621121BAC68C00353AF7 /* test.jpg in Resources */,
 				7F56E39D21AFAA870025306F /* LaunchScreen.storyboard in Resources */,
-				7F6F5A4521B9603A00D87C67 /* girl.jpg in Resources */,
+				72D1621B21BACB7E00353AF7 /* naruto.jpg in Resources */,
+				72D1621721BAC8CC00353AF7 /* blue.jpg in Resources */,
 				7F56E39A21AFAA870025306F /* Assets.xcassets in Resources */,
-				7FFA873521B9690200C7CF27 /* girl2.jpg in Resources */,
+				72D1621321BAC84200353AF7 /* red.jpg in Resources */,
+				72D1621D21BACD9F00353AF7 /* naruto2.jpg in Resources */,
+				72D1620F21BAB86900353AF7 /* girl2.jpg in Resources */,
 				7F56E39821AFAA860025306F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,7 +506,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5DU5SP7K29;
 				INFOPLIST_FILE = DNS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +524,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5DU5SP7K29;
 				INFOPLIST_FILE = DNS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
