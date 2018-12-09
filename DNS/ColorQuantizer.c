@@ -24,7 +24,7 @@ typedef struct ColorItem {
 
 
 static int leafNum = 0;
-static ColorNode * reducerArr[MAX_LENGTH];
+static ColorNode ** reducerArr;
 static uint64_t R = 0, G = 0, B = 0;
 
 void releaseNode(ColorNode * node) {
@@ -114,9 +114,10 @@ void reducerTree() {
 
 
 ColorNode * buildOctree(uint8_t * pixels, uint64_t len, uint32_t maxLeaf) {
-    ColorNode * root = createColorNode(0);
     leafNum = 0;
     R = G = B = 0;
+    reducerArr = (ColorNode **) calloc(MAX_LENGTH, sizeof(ColorNode *));
+    ColorNode * root = createColorNode(0);
     for (int i = 0; i < len; i += 4) {
         addColorNode(pixels[i], pixels[i + 1], pixels[i + 2], root, 0);
         while(leafNum > maxLeaf) reducerTree();
@@ -152,6 +153,7 @@ QuantizedColor * getQuantizedColor(uint8_t * pixel, uint64_t len, uint32_t maxLe
     rp->colors = (ColorRGB **) calloc(maxLeaf, sizeof(ColorRGB *));
     ColorNode * root = buildOctree(pixel, len, maxLeaf);
     getLeafColor(root, rp);
+    free(reducerArr);
     return rp;
 }
 
