@@ -17,6 +17,7 @@
 		72D1621B21BACB7E00353AF7 /* naruto.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621A21BACB7E00353AF7 /* naruto.jpg */; };
 		72D1621D21BACD9F00353AF7 /* naruto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 72D1621C21BACD9F00353AF7 /* naruto2.jpg */; };
 		7F15483D21AFB67A007651FF /* DnsSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F15483B21AFB67A007651FF /* DnsSearch.cpp */; };
+		7F21E89521BFA2E10054D3BA /* girl4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F21E89421BFA2E10054D3BA /* girl4.jpg */; };
 		7F36C44C21AFC0A000F0325C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44B21AFC0A000F0325C /* CFNetwork.framework */; };
 		7F36C44E21AFC0B400F0325C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */; };
 		7F56E39221AFAA860025306F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F56E39121AFAA860025306F /* AppDelegate.m */; };
@@ -60,6 +61,7 @@
 		72D1621C21BACD9F00353AF7 /* naruto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = naruto2.jpg; sourceTree = "<group>"; };
 		7F15483B21AFB67A007651FF /* DnsSearch.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DnsSearch.cpp; sourceTree = "<group>"; };
 		7F15483C21AFB67A007651FF /* DnsSearch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DnsSearch.hpp; sourceTree = "<group>"; };
+		7F21E89421BFA2E10054D3BA /* girl4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = girl4.jpg; path = ../../../Desktop/girl4.jpg; sourceTree = "<group>"; };
 		7F36C44B21AFC0A000F0325C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7F36C44D21AFC0B400F0325C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7F56E38D21AFAA860025306F /* DNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 				72D1621821BACAA800353AF7 /* girl3.jpg */,
 				72D1621A21BACB7E00353AF7 /* naruto.jpg */,
 				72D1621C21BACD9F00353AF7 /* naruto2.jpg */,
+				7F21E89421BFA2E10054D3BA /* girl4.jpg */,
 			);
 			path = DNS;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				72D1621521BAC88300353AF7 /* green.jpg in Resources */,
 				72D1621121BAC68C00353AF7 /* test.jpg in Resources */,
 				7F56E39D21AFAA870025306F /* LaunchScreen.storyboard in Resources */,
+				7F21E89521BFA2E10054D3BA /* girl4.jpg in Resources */,
 				72D1621B21BACB7E00353AF7 /* naruto.jpg in Resources */,
 				72D1621721BAC8CC00353AF7 /* blue.jpg in Resources */,
 				7F56E39A21AFAA870025306F /* Assets.xcassets in Resources */,

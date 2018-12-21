@@ -25,8 +25,8 @@ typedef struct quantizedcolor {
 } QuantizedColor;
 
 
-uint8_t * getImageThemeColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf);
-QuantizedColor * getQuantizedColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf);
+uint8_t * getImageThemeColor(uint8_t * pixel, uint32_t len, uint32_t maxLeaf);
+QuantizedColor * getQuantizedColor(uint8_t * pixel, uint32_t len, uint32_t maxLeaf);
 void freeQuantizedColor(QuantizedColor * p);
 
 #endif /* ColorQuantizer_h */

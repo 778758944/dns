@@ -30,7 +30,7 @@
     self.imageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
     
-    UIImage * girl = [UIImage imageNamed: @"girl2.jpg"];
+    UIImage * girl = [UIImage imageNamed: @"red.jpg"];
     self.imageView.image = girl;
     
     self.recvText.font = [UIFont systemFontOfSize:20];
@@ -192,7 +192,7 @@
     self.view.backgroundColor = [UIColor colorWithRed:theme[0]/255.0 green:theme[1]/255.0 blue:theme[2]/255.0 alpha:1];
     free(theme);
      */
-    
+    /*
     QuantizedColor * p = getQuantizedColor(self.rawData, 100 * 100 * 4, 8);
     NSLog(@"count: %d", p->count);
     for (int i = 0; i < p->count; i++) {
@@ -200,6 +200,15 @@
         NSLog(@"r=%d, g=%d, b=%d, count=%llu", c->r, c->g, c->b, c->pixelCount);
     }
     freeQuantizedColor(p);
+     */
+    uint8_t * themeColor = getImageThemeColor(self.rawData, 100 * 100 * 4, 512);
+    
+    NSLog(@"r = %d, g = %d, b = %d", themeColor[0], themeColor[1], themeColor[3]);
+    [UIView animateWithDuration:1 animations:^{
+        self.view.backgroundColor = [UIColor colorWithRed:themeColor[0]/255.0 green:themeColor[1]/255.0 blue:themeColor[2]/255.0 alpha:1];
+    }];
+    
+    free(themeColor);
 }
 
 

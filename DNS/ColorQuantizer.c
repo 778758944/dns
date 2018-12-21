@@ -113,7 +113,7 @@ void reducerTree() {
 }
 
 
-ColorNode * buildOctree(uint8_t * pixels, uint64_t len, uint32_t maxLeaf) {
+ColorNode * buildOctree(uint8_t * pixels, uint32_t len, uint32_t maxLeaf) {
     leafNum = 0;
     R = G = B = 0;
     reducerArr = (ColorNode **) calloc(MAX_LENGTH, sizeof(ColorNode *));
@@ -147,7 +147,7 @@ void getLeafColor(ColorNode * node, QuantizedColor * rp) {
     free(node);
 }
 
-QuantizedColor * getQuantizedColor(uint8_t * pixel, uint64_t len, uint32_t maxLeaf) {
+QuantizedColor * getQuantizedColor(uint8_t * pixel, uint32_t len, uint32_t maxLeaf) {
     QuantizedColor * rp = (QuantizedColor *) calloc(1, sizeof(QuantizedColor));
     rp->count = 0;
     rp->colors = (ColorRGB **) calloc(maxLeaf, sizeof(ColorRGB *));
@@ -166,6 +166,24 @@ void freeQuantizedColor(QuantizedColor * p) {
     
     free(p->colors);
     free(p);
+}
+
+uint8_t * getImageThemeColor(uint8_t * pixel, uint32_t len, uint32_t maxLeaf) {
+    QuantizedColor * rp = getQuantizedColor(pixel, len, maxLeaf);
+    uint8_t * themeColor = (uint8_t *) calloc(3, sizeof(uint8_t));
+    int size = rp->count;
+    uint64_t Red = 0, Green = 0, Blue = 0;
+    for (int i = 0; i < size; i++) {
+        ColorRGB * c = rp->colors[i];
+        Red += c->r;
+        Green += c->g;
+        Blue += c->b;
+    }
+    themeColor[0] = Red/size;
+    themeColor[1] = Green/size;
+    themeColor[2] = Blue/size;
+    freeQuantizedColor(rp);
+    return themeColor;
 }
 
 

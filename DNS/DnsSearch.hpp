@@ -15,7 +15,7 @@
 #import <sys/types.h>
 #import <sys/socket.h>
 #import <netdb.h>
-#import <strings.h>
+#import <string.h>
 #define SERVER_IP "localhost"
 #define SERVER_PORT "3000"
 
